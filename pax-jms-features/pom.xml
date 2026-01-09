@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.ops4j.pax</groupId>
         <artifactId>jms</artifactId>
-        <version>1.1.4-SNAPSHOT</version>
+        <version>2.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -159,23 +159,23 @@
                             <descriptors>
                                 <descriptor>mvn:org.apache.karaf.features/spring/${version.org.apache.karaf}/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.karaf.features/standard/${version.org.apache.karaf}/xml/features</descriptor>
-                                <descriptor>mvn:org.apache.karaf.features/enterprise/${version.org.apache.karaf}/xml/features</descriptor>
+                                <descriptor>mvn:org.apache.karaf.features/enterprise/${version.org.apache.karaf}.20250901/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.activemq/activemq-karaf/${version.org.apache.activemq}/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.activemq/artemis-features/${version.org.apache.activemq.artemis}/xml/features</descriptor>
                                 <descriptor>file:${project.build.directory}/classes/feature.xml</descriptor>
                             </descriptors>
                             <distribution>org.apache.karaf.features:framework</distribution>
-                            <javase>1.8</javase>
+                            <javase>17</javase>
                             <framework>
                                 <feature>framework</feature>
                             </framework>
                             <features>
                                 <feature>pax-jms-config</feature>
                                 <feature>pax-jms-activemq</feature>
-                                <feature>pax-jms-artemis</feature>
+                                <!--feature>pax-jms-artemis</feature>
                                 <feature>pax-jms-pool-pooledjms</feature>
-                                <feature>pax-jms-pool-narayana</feature>
-                                <feature>pax-jms-pool-transx</feature>
+                                <feature>pax-jms-pool-narayana</feature-->
+                                <!--feature>pax-jms-pool-transx</feature-->
                             </features>
                             <verifyTransitive>false</verifyTransitive>
                             <ignoreMissingConditions>true</ignoreMissingConditions>

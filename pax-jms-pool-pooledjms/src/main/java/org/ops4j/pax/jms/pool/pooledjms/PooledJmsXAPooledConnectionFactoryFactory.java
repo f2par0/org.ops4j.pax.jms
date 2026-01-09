@@ -16,10 +16,10 @@
 package org.ops4j.pax.jms.pool.pooledjms;
 
 import java.util.Map;
-import javax.jms.ConnectionFactory;
-import javax.jms.JMSRuntimeException;
-import javax.jms.XAConnectionFactory;
-import javax.transaction.TransactionManager;
+import jakarta.jms.ConnectionFactory;
+import jakarta.jms.JMSRuntimeException;
+import jakarta.jms.XAConnectionFactory;
+import jakarta.transaction.TransactionManager;
 
 import org.messaginghub.pooled.jms.JmsPoolXAConnectionFactory;
 import org.ops4j.pax.jms.service.ConnectionFactoryFactory;

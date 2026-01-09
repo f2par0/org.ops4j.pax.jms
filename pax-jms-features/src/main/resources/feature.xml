@@ -18,21 +18,12 @@
 -->
 <features name="pax-jms-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
 
-    <repository>
-        mvn:org.ops4j.pax.transx/pax-transx-features/${version.org.ops4j.pax.transx}/xml/features
-    </repository>
+
 
     <feature name="pax-jms-core" version="${project.version}">
         <details>Core dependencies for pax-jms features</details>
+        <feature>jakarta-jms-api</feature>
 
-        <bundle dependency="true">mvn:javax.jms/javax.jms-api/${version.javax.jms}</bundle>
-        <!-- it should be Karaf that installs "transaction-api" feature, that's why these bundles have dependency="true" -->
-        <bundle dependency="true">mvn:javax.transaction/javax.transaction-api/${version.javax.transaction}</bundle>
-        <bundle dependency="true">mvn:javax.interceptor/javax.interceptor-api/${version.javax.interceptor}</bundle>
-        <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/${version.org.apache.servicemix.bundles.javax-inject}</bundle>
-        <bundle dependency="true">mvn:javax.el/javax.el-api/${version.javax.el}</bundle>
-        <bundle dependency="true">mvn:javax.enterprise/cdi-api/${version.javax.enterprise.cdi}</bundle>
-        <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jasypt/${version.org.apache.servicemix.bundles.jasypt}</bundle>
         <bundle>mvn:org.ops4j.pax.jms/pax-jms-api/${project.version}</bundle>
     </feature>
 
@@ -47,8 +38,10 @@
         <feature>pax-jms-core</feature>
         <feature>aries-blueprint</feature>
 
-        <!-- javax.management.j2ee/javax.management.j2ee-api/1.1.2 has non-optional import of javax.ejb package -->
-        <bundle dependency="true">mvn:org.apache.geronimo.specs/geronimo-j2ee-management_1.1_spec/${version.org.apache.geronimo.specs.management}</bundle>
+        <bundle dependency="true">mvn:jakarta.activation/jakarta.activation-api/${version.jakarta.activation}</bundle>
+        <bundle dependency="true">mvn:jakarta.annotation/jakarta.annotation-api/${version.jakarta.annotation}</bundle>
+        <bundle dependency="true">mvn:jakarta.resource/jakarta.resource-api/${version.jakarta.resource.api}</bundle>
+        <bundle dependency="true">mvn:jakarta.xml.bind/jakarta.xml.bind-api/${version.jakarta.bindapi}</bundle>
         <bundle dependency="true">mvn:org.fusesource.hawtbuf/hawtbuf/${version.org.fusesource.hawtbuf}</bundle>
         <bundle dependency="true">mvn:org.apache.activemq/activemq-osgi/${version.org.apache.activemq}</bundle>
         <bundle>mvn:org.ops4j.pax.jms/pax-jms-activemq/${project.version}</bundle>
@@ -60,7 +53,7 @@
         <!-- artemis-core-client: mvn:org.apache.activemq/artemis-core-client-osgi -->
         <feature dependency="true">artemis-core-client</feature>
         <!-- artemis-jms-client: mvn:org.apache.activemq/artemis-jms-client-osgi -->
-        <feature dependency="true">artemis-jms-client</feature>
+        <feature dependency="true">artemis-jakarta-client</feature>
         <feature>artemis-amqp-client</feature>
 
         <bundle>mvn:org.ops4j.pax.jms/pax-jms-artemis/${project.version}</bundle>

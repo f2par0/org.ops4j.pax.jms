@@ -18,13 +18,13 @@ package org.ops4j.pax.jms.test.artemis;
 import java.io.File;
 import java.util.HashMap;
 import javax.inject.Inject;
-import javax.jms.Connection;
-import javax.jms.ConnectionMetaData;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageProducer;
-import javax.jms.Queue;
-import javax.jms.Session;
-import javax.jms.TextMessage;
+import jakarta.jms.Connection;
+import jakarta.jms.ConnectionMetaData;
+import jakarta.jms.MessageConsumer;
+import jakarta.jms.MessageProducer;
+import jakarta.jms.Queue;
+import jakarta.jms.Session;
+import jakarta.jms.TextMessage;
 
 import org.apache.activemq.artemis.core.config.FileDeploymentManager;
 import org.apache.activemq.artemis.core.config.impl.FileConfiguration;
@@ -69,7 +69,7 @@ public class ArtemisConnectionTest extends AbstractJmsTest {
                 mvnBundle("org.ops4j.pax.jms", "pax-jms-config"),
                 mvnBundle("org.ops4j.pax.jms", "pax-jms-artemis"),
                 // we have to install all bundles required by artemis-core-client and artemis-jms-client features
-                mvnBundle("javax.jms", "javax.jms-api"),
+                mvnBundle("jakarta.jms", "jakarta.jms-api"),
                 // there's a little problem with this bundle conflicting with artemis-server-osgi - but that's
                 // only in client + server scenario...
                 mvnBundle("org.apache.activemq", "artemis-jms-client-osgi"),

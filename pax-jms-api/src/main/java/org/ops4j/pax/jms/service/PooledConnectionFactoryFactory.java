@@ -16,9 +16,9 @@
 package org.ops4j.pax.jms.service;
 
 import java.util.Map;
-import javax.jms.ConnectionFactory;
-import javax.jms.JMSRuntimeException;
-import javax.jms.XAConnectionFactory;
+import jakarta.jms.ConnectionFactory;
+import jakarta.jms.JMSRuntimeException;
+import jakarta.jms.XAConnectionFactory;
 
 /**
  * A factory for pooled JMS {@link ConnectionFactory}. It's an equivalent of pax-jdbc's

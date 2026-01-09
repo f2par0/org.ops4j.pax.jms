@@ -15,7 +15,7 @@
  */
 package org.ops4j.pax.jms.service.internal;
 
-import javax.transaction.TransactionManager;
+import jakarta.transaction.TransactionManager;
 
 import org.ops4j.pax.jms.service.PooledConnectionFactoryFactory;
 import org.osgi.framework.BundleContext;

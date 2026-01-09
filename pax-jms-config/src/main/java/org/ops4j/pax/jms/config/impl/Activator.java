@@ -52,7 +52,7 @@ public class Activator implements BundleActivator {
 
         // this service will track:
         //  - javax.jms.ConnectionFactory services
-        //  - javax.jms.XAConnectionFactory services
+        //  - jakarta.jms.XAConnectionFactory services
         // and when they're registered:
         //  - with "pool=<pool name>"
         //  - without "pax.jms.managed=true"
@@ -60,7 +60,7 @@ public class Activator implements BundleActivator {
         // (as with org.ops4j.connectionfactory factory PIDs)
         ServiceTrackerHelper helper = ServiceTrackerHelper.helper(context);
         String filter = "(&(pool=*)(!(pax.jms.managed=true))" +
-                "(|(objectClass=javax.jms.ConnectionFactory)(objectClass=javax.jms.XAConnectionFactory)))";
+                "(|(objectClass=jakarta.jms.ConnectionFactory)(objectClass=jakarta.jms.XAConnectionFactory)))";
         connectionFactoryTracker = helper.track(Object.class, filter,
                 (cf, reference) -> new ConnectionFactoryWrapper(context, externalConfigLoader, cf, reference),
                 ConnectionFactoryWrapper::close

@@ -17,7 +17,7 @@ package org.ops4j.pax.jms.pool.pooledjms;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
-import javax.transaction.TransactionManager;
+import jakarta.transaction.TransactionManager;
 
 import org.ops4j.pax.jms.service.PooledConnectionFactoryFactory;
 import org.ops4j.pax.jms.service.internal.AbstractTransactionManagerTracker;

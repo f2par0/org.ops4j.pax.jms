@@ -44,7 +44,7 @@ public class PoolNarayanaTest extends AbstractJmsTest {
                 mvnBundle("javax.el", "javax.el-api"),
                 mvnBundle("javax.interceptor", "javax.interceptor-api"),
                 mvnBundle("javax.enterprise", "cdi-api"),
-                mvnBundle("javax.jms", "javax.jms-api"),
+                mvnBundle("jakarta.jms", "jakarta.jms-api"),
                 mvnBundle("org.messaginghub", "pooled-jms"),
                 mvnBundle("org.jboss.narayana.osgi", "narayana-osgi-jta"),
                 mvnBundle("org.apache.commons", "commons-pool2")

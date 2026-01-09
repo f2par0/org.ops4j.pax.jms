@@ -18,9 +18,9 @@ package org.ops4j.pax.jms.artemis;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import javax.jms.ConnectionFactory;
-import javax.jms.JMSRuntimeException;
-import javax.jms.XAConnectionFactory;
+import jakarta.jms.ConnectionFactory;
+import jakarta.jms.JMSRuntimeException;
+import jakarta.jms.XAConnectionFactory;
 
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 import org.apache.activemq.artemis.jms.client.ActiveMQXAConnectionFactory;

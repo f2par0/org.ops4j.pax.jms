@@ -19,9 +19,9 @@ import java.util.Arrays;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Map;
-import javax.jms.ConnectionFactory;
-import javax.jms.JMSRuntimeException;
-import javax.jms.XAConnectionFactory;
+import jakarta.jms.ConnectionFactory;
+import jakarta.jms.JMSRuntimeException;
+import jakarta.jms.XAConnectionFactory;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.ops4j.pax.jms.service.ConnectionFactoryFactory;

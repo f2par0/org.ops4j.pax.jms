@@ -15,27 +15,28 @@
  */
 package org.ops4j.pax.jms.artemis;
 
-import java.io.File;
-import java.net.MalformedURLException;
 import java.util.HashMap;
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.ConnectionMetaData;
-import javax.jms.JMSConsumer;
-import javax.jms.JMSContext;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
-import javax.jms.TextMessage;
+import jakarta.jms.Connection;
+import jakarta.jms.ConnectionFactory;
+import jakarta.jms.ConnectionMetaData;
+import jakarta.jms.JMSConsumer;
+import jakarta.jms.JMSContext;
+import jakarta.jms.MessageConsumer;
+import jakarta.jms.MessageProducer;
+import jakarta.jms.Session;
+import jakarta.jms.TextMessage;
 
 import org.apache.activemq.artemis.jms.client.ActiveMQQueue;
 import org.apache.activemq.artemis.jms.client.ActiveMQQueueConnectionFactory;
-import org.apache.activemq.artemis.junit.EmbeddedActiveMQResource;
-import org.junit.Rule;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.ClassRule;
 import org.junit.Test;
 import org.ops4j.pax.jms.service.ConnectionFactoryFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.utility.DockerImageName;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -44,17 +45,25 @@ public class ConnectTest {
 
     public static final Logger LOG = LoggerFactory.getLogger(ConnectTest.class);
 
-    @Rule
-    public EmbeddedActiveMQResource resource = new EmbeddedActiveMQResource(new File("target/test-classes/test-broker.xml").getAbsoluteFile().toURI().toURL().toString());
+    @ClassRule
+    public static GenericContainer<?> artemis = new GenericContainer<>(DockerImageName.parse("quay.io/artemiscloud/activemq-artemis-broker:latest"))
+            .withExposedPorts(61616)
+            .withEnv("AMQ_USER", "admin")
+            .withEnv("AMQ_PASSWORD", "admin");
 
-    public ConnectTest() throws MalformedURLException {
+    private static String brokerUrl;
+
+    @BeforeClass
+    public static void setUp() {
+        brokerUrl = "tcp://" + artemis.getHost() + ":" + artemis.getMappedPort(61616);
+        LOG.info("Artemis broker URL: {}", brokerUrl);
     }
 
     @Test
     public void jmsConnect() throws Exception {
-        ConnectionFactory cf = new ActiveMQQueueConnectionFactory("tcp://127.0.0.1:61616");
+        ConnectionFactory cf = new ActiveMQQueueConnectionFactory(brokerUrl);
         ConnectionMetaData md;
-        try (Connection con = cf.createConnection()) {
+        try (Connection con = cf.createConnection("admin", "admin")) {
             con.start();
             md = con.getMetaData();
             LOG.info("{}/{}", md.getJMSProviderName(), md.getProviderVersion());
@@ -69,7 +78,7 @@ public class ConnectTest {
             }
         }
         // JMS 2.0 API
-        try (JMSContext ctx = cf.createContext()) {
+        try (JMSContext ctx = cf.createContext("admin", "admin")) {
             ctx.start();
             ActiveMQQueue dest = new ActiveMQQueue("q1");
 
@@ -84,7 +93,9 @@ public class ConnectTest {
     public void paxJmsConnect() throws Exception {
         ConnectionFactoryFactory ff = new ArtemisConnectionFactoryFactory();
         HashMap<String, Object> props = new HashMap<>();
-        props.put(ConnectionFactoryFactory.JMS_URL, "tcp://127.0.0.1:61616");
+        props.put(ConnectionFactoryFactory.JMS_URL, brokerUrl);
+        props.put(ConnectionFactoryFactory.JMS_USER, "admin");
+        props.put(ConnectionFactoryFactory.JMS_PASSWORD, "admin");
         ConnectionMetaData md;
         try (Connection con = ff.createConnectionFactory(props).createConnection()) {
             con.start();

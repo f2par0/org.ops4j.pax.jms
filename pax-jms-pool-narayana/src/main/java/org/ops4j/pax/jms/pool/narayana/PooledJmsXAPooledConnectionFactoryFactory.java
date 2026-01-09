@@ -16,12 +16,12 @@
 package org.ops4j.pax.jms.pool.narayana;
 
 import java.util.Map;
-import javax.jms.ConnectionFactory;
-import javax.jms.JMSException;
-import javax.jms.JMSRuntimeException;
-import javax.jms.XAConnection;
-import javax.jms.XAConnectionFactory;
-import javax.transaction.TransactionManager;
+import jakarta.jms.ConnectionFactory;
+import jakarta.jms.JMSException;
+import jakarta.jms.JMSRuntimeException;
+import jakarta.jms.XAConnection;
+import jakarta.jms.XAConnectionFactory;
+import jakarta.transaction.TransactionManager;
 import javax.transaction.xa.XAException;
 import javax.transaction.xa.XAResource;
 import javax.transaction.xa.Xid;

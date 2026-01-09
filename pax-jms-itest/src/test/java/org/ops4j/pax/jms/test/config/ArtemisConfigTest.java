@@ -20,8 +20,8 @@ import java.io.IOException;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import javax.inject.Inject;
-import javax.jms.ConnectionFactory;
-import javax.jms.JMSException;
+import jakarta.jms.ConnectionFactory;
+import jakarta.jms.JMSException;
 
 import org.apache.activemq.artemis.core.config.FileDeploymentManager;
 import org.apache.activemq.artemis.core.config.impl.FileConfiguration;
@@ -74,7 +74,7 @@ public class ArtemisConfigTest extends AbstractJmsTest {
                 mvnBundle("org.ops4j.pax.jms", "pax-jms-config"),
                 mvnBundle("org.ops4j.pax.jms", "pax-jms-artemis"),
                 // we have to install all bundles required by artemis-core-client and artemis-jms-client features
-                mvnBundle("javax.jms", "javax.jms-api"),
+                mvnBundle("jakarta.jms", "jakarta.jms-api"),
                 mvnBundle("org.apache.activemq", "artemis-jms-client-osgi"),
                 mvnBundle("org.apache.activemq", "artemis-core-client-osgi"),
                 mvnBundle("org.apache.activemq", "activemq-artemis-native"),
