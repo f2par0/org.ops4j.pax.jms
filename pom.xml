@@ -147,17 +147,18 @@
         <!-- Artemis 2.28.1 needs Guava [30,31) -->
         <version.com.google.guava>30.1.1-jre</version.com.google.guava>
         <version.com.google.guava.failureaccess>1.0.1</version.com.google.guava.failureaccess>
-        <version.commons-beanutils>1.9.4</version.commons-beanutils>
+        <version.commons-beanutils>1.11.0</version.commons-beanutils>
         <version.commons-collections>3.2.2</version.commons-collections>
         <version.commons-io>2.13.0</version.commons-io>
         <version.io.netty>4.1.95.Final</version.io.netty>
         <version.io.netty.tcnative>2.0.61.Final</version.io.netty.tcnative>
 
-        <version.javax.el>3.0.0</version.javax.el>
-        <version.javax.enterprise.cdi>2.0.SP1</version.javax.enterprise.cdi>
+        <version.jakarta.el>6.0.1</version.jakarta.el>
+        <version.jakarta.enterprise.cdi>4.1.0</version.jakarta.enterprise.cdi>
+        <version.jakarta.lang.model>4.1.0</version.jakarta.lang.model>
         <!-- javax.inject/javax.inject/1 is not an OSGi bundle -->
         <version.org.apache.servicemix.bundles.javax-inject>1_3</version.org.apache.servicemix.bundles.javax-inject>
-        <version.javax.interceptor>1.2.2</version.javax.interceptor>
+        <version.jakarta.interceptor>2.2.0</version.jakarta.interceptor>
         <version.jakarta.activation>2.1.3</version.jakarta.activation>
         <version.jakarta.annotation>2.1.1</version.jakarta.annotation>
         <version.jakarta.jms>3.1.0</version.jakarta.jms>
@@ -172,26 +173,26 @@
         <version.junit>4.13.2</version.junit>
         <version.org.testcontainers>1.19.3</version.org.testcontainers>
 
-        <version.osgi.cmpn>6.0.0</version.osgi.cmpn>
-        <version.osgi.core>6.0.0</version.osgi.core>
+        <version.osgi.cmpn>7.0.0</version.osgi.cmpn>
+        <version.osgi.core>8.0.0</version.osgi.core>
         <version.org.osgi.service.component>1.5.1</version.org.osgi.service.component>
         <version.org.osgi.util.function>1.2.0</version.org.osgi.util.function>
         <version.org.osgi.util.promise>1.3.0</version.org.osgi.util.promise>
 
         <!-- 5.18.x supports Jakarta JMS with activemq-client-jakarta artifact, requires JDK11+ -->
         <version.org.apache.activemq>6.2.0</version.org.apache.activemq>
-        <!-- Artemis 2.44.0+ supports Jakarta JMS with artemis-jakarta-* artifacts, requires JDK17+ -->
-        <version.org.apache.activemq.artemis>2.44.0</version.org.apache.activemq.artemis>
+        <!-- Artemis 2.50.0+ supports Jakarta JMS with artemis-jakarta-* artifacts, requires JDK17+. OSGi artifacts moved to org.apache.artemis group -->
+        <version.org.apache.activemq.artemis>2.50.0</version.org.apache.activemq.artemis>
         <!-- Artemis Native 2.0.0 is JDK11+ -->
         <version.org.apache.activemq.artemis.native>1.0.2</version.org.apache.activemq.artemis.native>
         <version.org.apache.aries.util>1.1.3</version.org.apache.aries.util>
-        <version.org.apache.commons.pool2>2.11.1</version.org.apache.commons.pool2>
+        <version.org.apache.commons.pool2>2.13.1</version.org.apache.commons.pool2>
         <version.org.apache.commons.configuration2>2.9.0</version.org.apache.commons.configuration2>
         <version.org.apache.commons.lang3>3.12.0</version.org.apache.commons.lang3>
         <version.org.apache.commons.text>1.10.0</version.org.apache.commons.text>
         <version.org.apache.felix.configadmin>1.9.26</version.org.apache.felix.configadmin>
-        <version.org.apache.felix.scr>2.1.30</version.org.apache.felix.scr>
-        <version.org.apache.felix.framework>5.6.12</version.org.apache.felix.framework>
+        <version.org.apache.felix.scr>2.2.14</version.org.apache.felix.scr>
+        <version.org.apache.felix.framework>7.0.5</version.org.apache.felix.framework>
         <version.org.apache.geronimo.specs.j2ee-connector_1.6>1.0</version.org.apache.geronimo.specs.j2ee-connector_1.6>
         <version.org.apache.geronimo.specs.management>1.0.1</version.org.apache.geronimo.specs.management>
         <!-- [[org.apache.activemq.artemis-jms-client-osgi [22](R 22.0)] osgi.wiring.package; (&(osgi.wiring.package=org.apache.johnzon.core)(version>=0.9.0)(!(version>=1.0.0)))] -->
@@ -215,9 +216,9 @@
         <!-- 5.x is for JDK11+ -->
         <version.org.mockito>4.11.0</version.org.mockito>
         <version.org.slf4j>1.7.36</version.org.slf4j>
-        <version.org.ops4j.pax.exam>4.13.5</version.org.ops4j.pax.exam>
-        <version.org.ops4j.pax.logging>1.12.6</version.org.ops4j.pax.logging>
-        <version.org.ops4j.pax.swissbox>1.8.5</version.org.ops4j.pax.swissbox>
+        <version.org.ops4j.pax.exam>4.14.0</version.org.ops4j.pax.exam>
+        <version.org.ops4j.pax.logging>2.3.1</version.org.ops4j.pax.logging>
+        <version.org.ops4j.pax.swissbox>1.9.0</version.org.ops4j.pax.swissbox>
         <version.org.ops4j.pax.transx>0.5.4</version.org.ops4j.pax.transx>
         <version.org.ops4j.pax.url>2.6.14</version.org.ops4j.pax.url>
 
@@ -239,7 +240,7 @@
 
         <module>pax-jms-features</module>
 
-        <!--module>pax-jms-itest</module-->
+        <module>pax-jms-itest</module>
     </modules>
 
     <build>
@@ -700,7 +701,7 @@
                 <classifier>features</classifier>
             </dependency>
             <dependency>
-                <groupId>org.apache.activemq</groupId>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-features</artifactId>
                 <version>${version.org.apache.activemq.artemis}</version>
                 <type>xml</type>
@@ -757,19 +758,24 @@
                 <version>${version.com.sun.activation}</version>
             </dependency>
             <dependency>
-                <groupId>javax.el</groupId>
-                <artifactId>javax.el-api</artifactId>
-                <version>${version.javax.el}</version>
+                <groupId>jakarta.el</groupId>
+                <artifactId>jakarta.el-api</artifactId>
+                <version>${version.jakarta.el}</version>
             </dependency>
             <dependency>
-                <groupId>javax.enterprise</groupId>
-                <artifactId>cdi-api</artifactId>
-                <version>${version.javax.enterprise.cdi}</version>
+                <groupId>jakarta.enterprise</groupId>
+                <artifactId>jakarta.enterprise.cdi-api</artifactId>
+                <version>${version.jakarta.enterprise.cdi}</version>
             </dependency>
             <dependency>
-                <groupId>javax.interceptor</groupId>
-                <artifactId>javax.interceptor-api</artifactId>
-                <version>${version.javax.interceptor}</version>
+                <groupId>jakarta.interceptor</groupId>
+                <artifactId>jakarta.interceptor-api</artifactId>
+                <version>${version.jakarta.interceptor}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.enterprise</groupId>
+                <artifactId>jakarta.enterprise.lang-model</artifactId>
+                <version>${version.jakarta.lang.model}</version>
             </dependency>
             <dependency>
                 <groupId>jakarta.transaction</groupId>
@@ -894,7 +900,7 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>org.apache.activemq</groupId>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-jakarta-client-osgi</artifactId>
                 <version>${version.org.apache.activemq.artemis}</version>
                 <exclusions>
@@ -905,13 +911,8 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>org.apache.activemq</groupId>
-                <artifactId>artemis-jakarta-core-client-osgi</artifactId>
-                <version>${version.org.apache.activemq.artemis}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.activemq</groupId>
-                <artifactId>artemis-jakarta-server-osgi</artifactId>
+                <groupId>org.apache.artemis</groupId>
+                <artifactId>artemis-jakarta-server</artifactId>
                 <version>${version.org.apache.activemq.artemis}</version>
                 <exclusions>
                     <exclusion>
@@ -919,11 +920,6 @@
                         <artifactId>micrometer-core</artifactId>
                     </exclusion>
                 </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.activemq</groupId>
-                <artifactId>artemis-quorum-api</artifactId>
-                <version>${version.org.apache.activemq.artemis}</version>
             </dependency>
 
             <dependency>

@@ -37,15 +37,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.ops4j.pax.exam.Constants.START_LEVEL_SYSTEM_BUNDLES;
-import static org.ops4j.pax.exam.CoreOptions.bootDelegationPackage;
-import static org.ops4j.pax.exam.CoreOptions.frameworkProperty;
-import static org.ops4j.pax.exam.CoreOptions.junitBundles;
-import static org.ops4j.pax.exam.CoreOptions.linkBundle;
-import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
-import static org.ops4j.pax.exam.CoreOptions.systemPackage;
-import static org.ops4j.pax.exam.CoreOptions.systemProperty;
-import static org.ops4j.pax.exam.CoreOptions.systemTimeout;
-import static org.ops4j.pax.exam.CoreOptions.url;
+import static org.ops4j.pax.exam.CoreOptions.*;
 import static org.ops4j.pax.exam.OptionUtils.combine;
 
 /**
@@ -114,9 +106,11 @@ public abstract class AbstractJmsTest {
                 frameworkProperty("felix.log.level").value("1"),
 
                 bootDelegationPackage("sun.misc"),
-                systemPackage("javax.transaction;version=1.3.0"),
+                systemPackage("jakarta.transaction;version=2.0.0"),
                 systemPackage("javax.transaction.xa;version=1.1.0"),
                 systemPackage("sun.misc"),
+                systemPackage("org.testcontainers.containers;version=1.19.3"),
+                systemPackage("org.testcontainers.utility;version=1.19.3"),
 
                 // added implicitly by pax-exam, if pax.exam.system=test
                 // these resources are provided inside org.ops4j.pax.exam:pax-exam-link-mvn jar

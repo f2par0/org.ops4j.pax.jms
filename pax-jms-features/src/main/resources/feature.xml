@@ -94,11 +94,11 @@
 
     <feature name="pax-jms-pool-transx" version="${project.version}">
         <details>JMS connection/session pooling JCA based pax-transx-jms</details>
-        <feature>pax-jms-core</feature>
+        <!--feature>pax-jms-core</feature>
         <feature>pax-transx-jms</feature>
         <feature>pax-transx-tm</feature>
 
-        <bundle>mvn:org.ops4j.pax.jms/pax-jms-pool-transx/${project.version}</bundle>
+        <bundle>mvn:org.ops4j.pax.jms/pax-jms-pool-transx/${project.version}</bundle-->
     </feature>
 
     <feature name="pax-jms-pool" version="${project.version}">

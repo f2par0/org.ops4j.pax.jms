@@ -89,7 +89,7 @@
                         </Private-Package>
                         <Import-Package>
                             jakarta.transaction;version="[2.0,3)",
-                            jakarta.transaction.xa;version=!,
+                            !javax.transaction.xa,
                             *
                         </Import-Package>
                     </instructions>

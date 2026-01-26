@@ -17,6 +17,7 @@ package org.ops4j.pax.jms.test.pool;
 
 import javax.inject.Inject;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.CoreOptions;
@@ -27,6 +28,7 @@ import org.ops4j.pax.jms.test.AbstractJmsTest;
 
 import static org.ops4j.pax.exam.OptionUtils.combine;
 
+@Ignore("pax-jms-pool-transx has not been migrated to Jakarta yet")
 public class PoolTransxTest extends AbstractJmsTest {
 
     @Inject

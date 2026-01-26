@@ -20,7 +20,7 @@ Pax JMS provides a lightweight bridge between Java Message Service (JMS) and OSG
 
 When migrating from version 1.x to 2.0, you need to:
 
-1. **Update Java Version**: Upgrade to JDK 11 or later
+1. **Update Java Version**: Upgrade to JDK 17 or later
 2. **Update Import Statements**: Change all `javax.jms.*` imports to `jakarta.jms.*`
 3. **Update OSGi Filters**: Change references from `javax.jms.ConnectionFactory` to `jakarta.jms.ConnectionFactory`
 4. **Update Dependencies**: Ensure all JMS provider libraries support Jakarta Messaging
