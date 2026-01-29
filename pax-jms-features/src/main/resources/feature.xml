@@ -22,8 +22,13 @@
 
     <feature name="pax-jms-core" version="${project.version}">
         <details>Core dependencies for pax-jms features</details>
-        <feature>jakarta-jms-api</feature>
-
+        <bundle dependency="true">mvn:jakarta.enterprise/jakarta.enterprise.cdi-api/${version.jakarta.enterprise.cdi}</bundle>
+        <bundle dependency="true">mvn:jakarta.enterprise/jakarta.enterprise.lang-model/${version.jakarta.lang.model}</bundle>
+        <bundle dependency="true">mvn:jakarta.inject/jakarta.inject-api/${version.jakarta.inject}</bundle>
+        <bundle dependency="true">mvn:jakarta.interceptor/jakarta.interceptor-api/${version.jakarta.interceptor}</bundle>
+        <bundle dependency="true">mvn:jakarta.el/jakarta.el-api/${version.jakarta.el}</bundle>
+        <bundle dependency="true">mvn:jakarta.jms/jakarta.jms-api/${version.jakarta.jms}</bundle>
+        <bundle dependency="true">mvn:jakarta.transaction/jakarta.transaction-api/${version.jakarta.transaction}</bundle>
         <bundle>mvn:org.ops4j.pax.jms/pax-jms-api/${project.version}</bundle>
     </feature>
 

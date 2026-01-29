@@ -7,9 +7,9 @@ org.ops4j.pax.jms
 Pax JMS provides a lightweight bridge between Java Message Service (JMS) and OSGi using Declarative Services and the whiteboard pattern
 ## Version Information
 
-- **Version 2.0+**: Uses Jakarta Messaging (jakarta.jms) and requires JDK 11+
-  - ActiveMQ 5.18.x with activemq-client-jakarta
-  - Artemis 3.0.x
+- **Version 2.0+**: Uses Jakarta Messaging (jakarta.jms) and requires JDK 17+
+  - ActiveMQ 6.2.x with activemq-client-jakarta
+  - Artemis 2.50.x
   - pooled-jms 3.x
   - Karaf 4.4.x
 
