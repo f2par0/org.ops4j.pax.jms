@@ -40,13 +40,7 @@ public class PoolPooledJmsTest extends AbstractJmsTest {
                 CoreOptions.bootDelegationPackage("sun.*"),
                 mvnBundle("org.ops4j.pax.jms", "pax-jms-api"),
                 mvnBundle("org.ops4j.pax.jms", "pax-jms-pool-pooledjms"),
-                mvnBundle("jakarta.transaction", "jakarta.transaction-api"),
-                mvnBundle("jakarta.el", "jakarta.el-api"),
-                mvnBundle("jakarta.inject", "jakarta.inject-api"),
-                mvnBundle("jakarta.interceptor", "jakarta.interceptor-api"),
-                mvnBundle("jakarta.enterprise", "jakarta.enterprise.lang-model"),
-                mvnBundle("jakarta.enterprise", "jakarta.enterprise.cdi-api"),
-                mvnBundle("jakarta.jms", "jakarta.jms-api"),
+                jakartaBundles(),
                 mvnBundle("org.messaginghub", "pooled-jms"),
                 mvnBundle("org.apache.commons", "commons-pool2")
         );

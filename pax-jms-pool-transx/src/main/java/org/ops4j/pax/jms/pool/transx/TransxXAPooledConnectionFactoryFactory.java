@@ -19,7 +19,7 @@ import java.util.Map;
 import jakarta.jms.ConnectionFactory;
 import jakarta.jms.JMSRuntimeException;
 import jakarta.jms.XAConnectionFactory;
-import javax.resource.spi.TransactionSupport;
+import jakarta.resource.spi.TransactionSupport;
 
 import org.ops4j.pax.jms.service.ConnectionFactoryFactory;
 import org.ops4j.pax.transx.jms.ManagedConnectionFactoryBuilder;

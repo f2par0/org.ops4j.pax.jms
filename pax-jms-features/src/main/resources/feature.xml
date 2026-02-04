@@ -18,6 +18,9 @@
 -->
 <features name="pax-jms-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
 
+    <repository>
+        mvn:org.ops4j.pax.transx/pax-transx-features/${version.org.ops4j.pax.transx}/xml/features
+    </repository>
 
 
     <feature name="pax-jms-core" version="${project.version}">
@@ -90,8 +93,8 @@
     <feature name="pax-jms-pool-narayana" version="${project.version}">
         <details>JMS connection/session pooling using org.messaginghub:pooled-jms library and Narayana TX Manager Recovery service</details>
         <feature>pax-jms-core</feature>
+        <feature>pax-transx-tm-narayana</feature>
 
-        <bundle dependency="true">mvn:org.jboss.narayana.osgi/narayana-osgi-jta/${version.org.jboss.narayana}</bundle>
         <bundle dependency="true">mvn:org.apache.commons/commons-pool2/${version.org.apache.commons.pool2}</bundle>
         <bundle dependency="true">mvn:org.messaginghub/pooled-jms/${version.org.messaginghub.pooled-jms}</bundle>
         <bundle>mvn:org.ops4j.pax.jms/pax-jms-pool-narayana/${project.version}</bundle>
@@ -99,11 +102,11 @@
 
     <feature name="pax-jms-pool-transx" version="${project.version}">
         <details>JMS connection/session pooling JCA based pax-transx-jms</details>
-        <!--feature>pax-jms-core</feature>
+        <feature>pax-jms-core</feature>
         <feature>pax-transx-jms</feature>
         <feature>pax-transx-tm</feature>
 
-        <bundle>mvn:org.ops4j.pax.jms/pax-jms-pool-transx/${project.version}</bundle-->
+        <bundle>mvn:org.ops4j.pax.jms/pax-jms-pool-transx/${project.version}</bundle>
     </feature>
 
     <feature name="pax-jms-pool" version="${project.version}">

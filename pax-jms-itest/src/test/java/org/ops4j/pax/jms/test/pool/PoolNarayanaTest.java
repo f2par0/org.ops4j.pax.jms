@@ -25,6 +25,8 @@ import org.ops4j.pax.exam.util.Filter;
 import org.ops4j.pax.jms.service.PooledConnectionFactoryFactory;
 import org.ops4j.pax.jms.test.AbstractJmsTest;
 
+import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
+import static org.ops4j.pax.exam.CoreOptions.wrappedBundle;
 import static org.ops4j.pax.exam.OptionUtils.combine;
 
 public class PoolNarayanaTest extends AbstractJmsTest {
@@ -41,15 +43,12 @@ public class PoolNarayanaTest extends AbstractJmsTest {
                 CoreOptions.bootDelegationPackage("javax.transaction.xa.*"),
                 mvnBundle("org.ops4j.pax.jms", "pax-jms-api"),
                 mvnBundle("org.ops4j.pax.jms", "pax-jms-pool-narayana"),
-                mvnBundle("jakarta.transaction", "jakarta.transaction-api"),
-                mvnBundle("jakarta.el", "jakarta.el-api"),
-                mvnBundle("jakarta.inject", "jakarta.inject-api"),
-                mvnBundle("jakarta.interceptor", "jakarta.interceptor-api"),
-                mvnBundle("jakarta.enterprise", "jakarta.enterprise.lang-model"),
-                mvnBundle("jakarta.enterprise", "jakarta.enterprise.cdi-api"),
-                mvnBundle("jakarta.jms", "jakarta.jms-api"),
+                jakartaBundles(),
                 mvnBundle("org.messaginghub", "pooled-jms"),
-                mvnBundle("org.jboss.narayana.osgi", "narayana-osgi-jta"),
+                wrappedBundle(mvnBundle("org.jboss.narayana.jta", "narayana-jta")),
+                wrappedBundle(mvnBundle("org.jboss.narayana.jts", "narayana-jts-integration")),
+                mvnBundle("org.ops4j.pax.transx", "pax-transx-tm-narayana"),
+                mvnBundle("org.ops4j.pax.transx", "pax-transx-tm-api"),
                 mvnBundle("org.apache.commons", "commons-pool2")
         );
     }

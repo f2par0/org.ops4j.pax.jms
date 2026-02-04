@@ -28,7 +28,6 @@ import org.ops4j.pax.jms.test.AbstractJmsTest;
 
 import static org.ops4j.pax.exam.OptionUtils.combine;
 
-@Ignore("pax-jms-pool-transx has not been migrated to Jakarta yet")
 public class PoolTransxTest extends AbstractJmsTest {
 
     @Inject
@@ -45,12 +44,8 @@ public class PoolTransxTest extends AbstractJmsTest {
                 mvnBundle("org.ops4j.pax.transx", "pax-transx-tm-api"),
                 mvnBundle("org.ops4j.pax.transx", "pax-transx-jms"),
                 mvnBundle("org.ops4j.pax.transx", "pax-transx-connector"),
-                mvnBundle("javax.transaction", "javax.transaction-api"),
-                mvnBundle("javax.el", "javax.el-api"),
-                mvnBundle("javax.interceptor", "javax.interceptor-api"),
-                mvnBundle("javax.enterprise", "cdi-api"),
-                mvnBundle("jakarta.jms", "jakarta.jms-api"),
-                mvnBundle("org.apache.geronimo.specs", "geronimo-j2ee-connector_1.6_spec"),
+                mvnBundle("jakarta.resource", "jakarta.resource-api"),
+                jakartaBundles(),
                 mvnBundle("org.apache.commons", "commons-pool2")
         );
     }

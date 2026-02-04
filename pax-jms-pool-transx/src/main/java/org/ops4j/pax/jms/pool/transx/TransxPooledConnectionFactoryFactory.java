@@ -18,7 +18,7 @@ package org.ops4j.pax.jms.pool.transx;
 import java.util.Map;
 import jakarta.jms.ConnectionFactory;
 import jakarta.jms.JMSRuntimeException;
-import javax.resource.spi.TransactionSupport;
+import jakarta.resource.spi.TransactionSupport;
 
 import org.ops4j.pax.jms.service.ConnectionFactoryFactory;
 import org.ops4j.pax.jms.service.PooledConnectionFactoryFactory;

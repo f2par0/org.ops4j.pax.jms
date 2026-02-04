@@ -25,8 +25,10 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
+import org.ops4j.pax.exam.CoreOptions;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.junit.PaxExam;
+import org.ops4j.pax.exam.options.CompositeOption;
 import org.ops4j.pax.exam.options.MavenArtifactProvisionOption;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
@@ -109,8 +111,9 @@ public abstract class AbstractJmsTest {
                 systemPackage("jakarta.transaction;version=2.0.0"),
                 systemPackage("javax.transaction.xa;version=1.1.0"),
                 systemPackage("sun.misc"),
-                systemPackage("org.testcontainers.containers;version=1.19.3"),
-                systemPackage("org.testcontainers.utility;version=1.19.3"),
+                // Testcontainers loaded from system bundle (test JVM classloader), not as OSGi application bundles
+                systemPackage("org.testcontainers.containers"),
+                systemPackage("org.testcontainers.utility"),
 
                 // added implicitly by pax-exam, if pax.exam.system=test
                 // these resources are provided inside org.ops4j.pax.exam:pax-exam-link-mvn jar
@@ -166,6 +169,22 @@ public abstract class AbstractJmsTest {
                 // default log will be written to file
                 frameworkProperty("org.ops4j.pax.logging.useFileLogFallback").value(fileName)
         };
+    }
+
+    /**
+     * Returns common Jakarta API bundles used across tests.
+     * @return composite option containing Jakarta API bundle options
+     */
+    protected CompositeOption jakartaBundles() {
+        return CoreOptions.composite(
+                mavenBundle("jakarta.transaction", "jakarta.transaction-api").versionAsInProject(),
+                mavenBundle("jakarta.interceptor", "jakarta.interceptor-api").versionAsInProject(),
+                mavenBundle("jakarta.el", "jakarta.el-api").versionAsInProject(),
+                mavenBundle("jakarta.enterprise", "jakarta.enterprise.cdi-api").versionAsInProject(),
+                mavenBundle("jakarta.enterprise", "jakarta.enterprise.lang-model").versionAsInProject(),
+                mavenBundle("jakarta.inject", "jakarta.inject-api").versionAsInProject(),
+                mavenBundle("jakarta.jms", "jakarta.jms-api").versionAsInProject()
+        );
     }
 
 }

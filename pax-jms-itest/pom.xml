@@ -61,13 +61,11 @@
             <artifactId>pax-jms-pool-narayana</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!-- Commented out until transx module is restored for Jakarta
         <dependency>
             <groupId>org.ops4j.pax.jms</groupId>
             <artifactId>pax-jms-pool-transx</artifactId>
             <scope>runtime</scope>
         </dependency>
-        -->
 
         <!-- OPS4J dependencies -->
 
@@ -397,9 +395,17 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.narayana.osgi</groupId>
-            <artifactId>narayana-osgi-jta</artifactId>
-            <scope>test</scope>
+            <groupId>org.jboss.narayana.jta</groupId>
+            <artifactId>narayana-jta</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.narayana.jts</groupId>
+            <artifactId>narayana-jts-integration</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.transx</groupId>
+            <artifactId>pax-transx-tm-narayana</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>

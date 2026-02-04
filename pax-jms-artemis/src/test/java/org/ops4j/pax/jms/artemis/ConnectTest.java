@@ -28,7 +28,6 @@ import jakarta.jms.TextMessage;
 
 import org.apache.activemq.artemis.jms.client.ActiveMQQueue;
 import org.apache.activemq.artemis.jms.client.ActiveMQQueueConnectionFactory;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
