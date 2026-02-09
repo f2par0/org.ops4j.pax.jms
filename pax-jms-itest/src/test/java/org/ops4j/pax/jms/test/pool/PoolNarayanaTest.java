@@ -45,8 +45,7 @@ public class PoolNarayanaTest extends AbstractJmsTest {
                 mvnBundle("org.ops4j.pax.jms", "pax-jms-pool-narayana"),
                 jakartaBundles(),
                 mvnBundle("org.messaginghub", "pooled-jms"),
-                wrappedBundle(mvnBundle("org.jboss.narayana.jta", "narayana-jta")),
-                wrappedBundle(mvnBundle("org.jboss.narayana.jts", "narayana-jts-integration")),
+                mvnBundle("jakarta.resource", "jakarta.resource-api"),
                 mvnBundle("org.ops4j.pax.transx", "pax-transx-tm-narayana"),
                 mvnBundle("org.ops4j.pax.transx", "pax-transx-tm-api"),
                 mvnBundle("org.apache.commons", "commons-pool2")
